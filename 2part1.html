@@ -23,14 +23,22 @@
     line-height:1.75;
   }
 
-  header {
-    background:var(--accent);
-    color:#fff;
-    text-align:center;
-    padding:1rem 0;
-    font-weight:bold;
-    letter-spacing:4px;
-    font-size:1.3rem;
+  /* Modern Australian English banner */
+  .topbar{
+    position:sticky; top:0; z-index:10;
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    padding:.85rem 1rem;
+  }
+  .brand{
+    max-width:1100px;
+    margin:0 auto;
+    font-weight:700;
+    letter-spacing:.2px;
+    font-size:clamp(1rem, 3.5vw, 1.25rem);
+    color:var(--accent);
+    text-transform:uppercase;
+    text-align:left;
   }
 
   .wrap {
@@ -123,7 +131,10 @@
 </head>
 
 <body>
-  <header>MODERN ENGLISH AUSTRALIA</header>
+  <!-- Replaced banner -->
+  <div class="topbar" role="banner">
+    <div class="brand">Modern Australian English</div>
+  </div>
 
   <div class="wrap">
     <div class="card">
@@ -214,11 +225,9 @@
         <a href="Upart2.html">Part 1</a>
         <a href="2part4.html">Part 4</a>
       </nav>
-      </nav>
 
       <footer>© Koala Spies Sydney 2025</footer>
     </div>
   </div>
 </body>
 </html>
-
