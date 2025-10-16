@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CAE Use of English – Part 1</title>
+
 <style>
   :root {
     --bg:#1e1e1e;
@@ -23,28 +24,50 @@
     line-height:1.75;
   }
 
-  /* Modern Australian English banner */
-  .topbar{
-    position:sticky; top:0; z-index:10;
-    background:var(--card);
-    border-bottom:1px solid var(--line);
-    padding:.85rem 1rem;
-  }
-  .brand{
-    max-width:1100px;
-    margin:0 auto;
-    font-weight:700;
-    letter-spacing:.2px;
-    font-size:clamp(1rem, 3.5vw, 1.25rem);
-    color:var(--accent);
-    text-transform:uppercase;
-    text-align:left;
-  }
+/* Brand header (dark, left-aligned image) */
+header.brand{
+  background:#111;               /* dark brand background */
+  display:flex;
+  align-items:center;
+  padding:.75rem 1rem;
+}
+
+/* Banner image scales nicely on mobile */
+header.brand img{
+  height:48px;
+  width:auto;
+  display:block;
+}
+
+/* Thin accent bar under header */
+.brand-strip{
+  height:4px;
+  background:var(--accent);
+}
+
+/* Remove/override the previous text-header rules */
+header{
+  background:unset;
+  color:unset;
+  text-align:left;
+  padding:0;
+  font-weight:unset;
+  letter-spacing:0;
+  font-size:unset;
+}
+
+/* Responsive tweak */
+@media (max-width:700px){
+  header.brand{ padding:.6rem .8rem; }
+  header.brand img{ height:38px; }
+}
+
 
   .wrap {
+    width:100%;
     max-width:900px;
-    margin:2rem auto;
-    padding:1rem;
+    margin:auto;
+    padding:clamp(0.8rem, 3vw, 2rem);
   }
 
   .card {
@@ -68,6 +91,7 @@
 
   .text {
     font-size:clamp(0.95rem, 2.5vw, 1.05rem);
+    word-wrap:break-word;
   }
 
   select {
@@ -75,10 +99,11 @@
     color:var(--ink);
     border:1px solid var(--line);
     border-radius:6px;
-    padding:0.4rem 0.6rem;
+    padding:0.5rem 0.7rem;
     font:inherit;
-    margin:0.3rem 0.25rem;
-    min-width:150px;
+    margin:0.4rem 0.25rem;
+    width:auto;
+    min-width:130px;
     max-width:100%;
   }
 
@@ -87,6 +112,10 @@
   nav {
     text-align:center;
     margin-top:2rem;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:0.8rem;
   }
 
   nav a {
@@ -95,8 +124,10 @@
     border:1px solid var(--accent);
     padding:0.6rem 1.2rem;
     border-radius:6px;
-    margin:0 0.5rem;
     transition:all 0.2s ease-in-out;
+    flex:1 1 auto;
+    text-align:center;
+    min-width:100px;
   }
 
   nav a:hover {
@@ -111,30 +142,53 @@
     margin:2rem 0 1rem 0;
   }
 
-  @media (max-width:600px) {
+  /* ✅ Mobile layout */
+  @media (max-width:700px) {
+    .wrap {
+      padding:1rem;
+    }
+    .card {
+      padding:1rem;
+      border-radius:10px;
+    }
+    header {
+      letter-spacing:2px;
+    }
     select {
       display:block;
       width:100%;
-      margin:0.6rem 0;
+      margin:0.7rem 0;
     }
     .text {
+      font-size:1rem;
       line-height:1.9;
+    }
+    nav {
+      flex-direction:column;
+      gap:0.6rem;
     }
   }
 
+  /* ✅ Print-friendly */
   @media print {
     body { background:#fff; color:#000; }
     .card { background:#fff; box-shadow:none; border:1px solid #ccc; }
     select { background:#fff; color:#000; }
   }
+
+  /* ✅ Highlight strong text */
+  strong {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
 </style>
 </head>
 
 <body>
-  <!-- Replaced banner -->
-  <div class="topbar" role="banner">
-    <div class="brand">Modern Australian English</div>
-  </div>
+  <header>MODERN AUSTRALIAN ENGLISH</header>
 
   <div class="wrap">
     <div class="card">
@@ -191,10 +245,10 @@
         (5)
         <select>
           <option value="">---</option>
-          <option>totally</option>
-          <option>completely</option>
+          <option>slightly</option>
+          <option>substantially</option>
           <option>utterly</option>
-          <option>absolutely</option>
+          <option>very</option>
         </select>
         amazing and recharges their mental batteries.
         <br><br>
@@ -221,8 +275,8 @@
       </div>
 
       <nav>
-         <a href="index.html">🏠 Home</a>
-        <a href="Upart2.html">Part 1</a>
+        <a href="2covuseofENG.html">🏠 Home</a>
+        <a href="Upart2.html">Part 2</a>
         <a href="2part4.html">Part 4</a>
       </nav>
 
