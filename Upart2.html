@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Week 2 – Use of English: Part 2</title>
+<style>
+  :root{
+    --bg:#1e1e1e;
+    --card:#2a2a2a;
+    --ink:#f5f5f5;
+    --muted:#bbbbbb;
+    --accent:#ff7a1a;
+    --line:#3a3a3a;
+    --radius:16px;
+  }
+
+  *{ box-sizing:border-box }
+  html, body{ height:100%; margin:0 }
+  body{
+    font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    line-height:1.75;
+  }
+
+  /* Header */
+  .topbar{
+    position:sticky; top:0; z-index:10;
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    padding:.85rem 1rem;
+  }
+  .brand{
+    max-width:1100px; margin:0 auto;
+    font-weight:700;
+    letter-spacing:.2px;
+    font-size:clamp(1rem, 3.5vw, 1.25rem);
+    color:var(--accent);
+    text-transform:uppercase;
+  }
+
+  /* Main content */
+  .wrap{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:clamp(20px,4vw,40px);
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:0 6px 24px rgba(0,0,0,.25);
+    width:100%;
+    max-width:800px;
+    padding:clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  h1{
+    color:var(--accent);
+    margin-top:0;
+    font-size:clamp(1.4rem, 4vw, 2rem);
+    text-align:center;
+  }
+
+  p.instructions{
+    color:var(--muted);
+    font-size:clamp(0.95rem, 2.5vw, 1rem);
+    margin-bottom:1.5rem;
+    text-align:justify;
+  }
+
+  .text{
+    font-size:clamp(0.95rem, 2.5vw, 1.05rem);
+  }
+
+  input.blank{
+    background:#333;
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:0.35rem 0.6rem;
+    font:inherit;
+    margin:0.2rem;
+    min-width:100px;
+  }
+
+  nav{
+    text-align:center;
+    margin-top:2rem;
+  }
+
+  nav a{
+    text-decoration:none;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    padding:0.6rem 1.2rem;
+    border-radius:6px;
+    margin:0 0.5rem;
+    transition:all 0.2s ease-in-out;
+  }
+
+  nav a:hover{
+    background:var(--accent);
+    color:#111;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:.9rem;
+    padding:1rem;
+    text-align:center;
+    background:var(--card);
+  }
+
+  @media (max-width:600px){
+    input.blank{ display:block; width:100%; margin:0.6rem 0; }
+    .text{ line-height:1.9; }
+  }
+
+  @media print{
+    .topbar, footer{ background:#fff; color:#000; border-color:#ccc; }
+    .card{ background:#fff; border-color:#ccc; box-shadow:none }
+    input.blank{ background:#fff; color:#000; border-color:#ccc }
+    nav a{ display:none }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar" role="banner">
+    <div class="brand">Modern English Australia</div>
+  </div>
+
+  <div class="wrap">
+    <section class="card" aria-labelledby="title">
+      <h1 id="title">Use of English – Part 2: Open Cloze</h1>
+
+      <p class="instructions">
+        <strong>Instructions:</strong> Read the text below and think of the word that best fits each gap.  
+        Use <b>only one word</b> in each gap. There is an example at the beginning (0).
+      </p>
+
+      <div class="text">
+        <h3><em>The Security Challenge in Tech</em></h3>
+
+        Cybersecurity experts are currently (0) <strong>in</strong> high demand, particularly as companies increasingly move their operations online. 
+        (1) <input class="blank" type="text" /> a result, skilled professionals (2) <input class="blank" type="text" /> this field are perpetually (3) <input class="blank" type="text" /> the road, travelling between different international clients who are facing complex digital threats.
+        <br><br>
+        For many businesses, however, there’s a feeling of (4) <input class="blank" type="text" /> two minds about the cost of security. They understand that sophisticated protection is absolutely essential (5) <input class="blank" type="text" /> the digital age, but they often struggle to allocate the necessary budget. The reality is that the greater the technological advances, (6) <input class="blank" type="text" /> more vulnerable a system becomes to attack.
+        <br><br>
+        This conflict means that highly qualified security consultants are always (7) <input class="blank" type="text" /> demand, offering their expertise to mitigate risks. (8) <input class="blank" type="text" /> those who are quick to adopt every new gadget, considering the potential security implications is a critical part of a safe digital lifestyle.
+      </div>
+
+      <nav>
+           <a href="2covuseofENG.html">🏠 Home</a>
+        <a href="2part1.html">Part 1</a>
+        <a href="2part4.html">Part 4</a>
+      </nav>
+      </nav>
+    </section>
+  </div>
+
+  <footer role="contentinfo">
+    © Koala Spies Sydney 2025
+  </footer>
+</body>
+</html>

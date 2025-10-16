@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Week 2 – Use of English</title>
+<style>
+  :root{
+    --bg:#1e1e1e;
+    --card:#2a2a2a;
+    --ink:#f5f5f5;
+    --muted:#bbbbbb;
+    --accent:#ff7a1a;
+    --line:#3a3a3a;
+    --radius:16px;
+  }
+
+  *{ box-sizing:border-box }
+  html, body{ height:100%; margin:0 }
+  body{
+    font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+  }
+
+  /* Top banner */
+  .topbar{
+    position:sticky; top:0; z-index:10;
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    padding:.85rem 1rem;
+  }
+  .brand{
+    max-width:1100px; margin:0 auto;
+    font-weight:700;
+    letter-spacing:.2px;
+    font-size:clamp(1rem, 3.5vw, 1.25rem);
+    color:var(--accent);
+    text-transform:uppercase;
+  }
+
+  /* Main section */
+  .main{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:clamp(16px,4vw,32px);
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:0 6px 24px rgba(0,0,0,.25);
+    width:100%;
+    max-width:640px;
+    padding:clamp(1.5rem, 4vw, 2.5rem);
+    text-align:center;
+  }
+  h1{
+    color:var(--accent);
+    margin:0 0 1rem;
+    font-size:clamp(1.4rem, 4.5vw, 2.2rem);
+  }
+  p.lead{
+    color:var(--muted);
+    margin:.25rem 0 1.5rem;
+    font-size:clamp(.95rem, 2.5vw, 1.05rem);
+  }
+
+  /* Navigation buttons */
+  .links{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  a.btn{
+    display:block;
+    text-decoration:none;
+    background:var(--accent);
+    color:#111;
+    font-weight:700;
+    padding:.9rem 1.1rem;
+    border-radius:10px;
+    border:1px solid transparent;
+    transition:transform .06s ease, background .2s ease;
+  }
+  a.btn:hover{ background:#ff9f4d; transform:translateY(-1px) }
+  a.btn:active{ transform:translateY(0) }
+
+  /* Footer */
+  footer{
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:.92rem;
+    padding:.9rem 1rem;
+    text-align:center;
+    background:var(--card);
+  }
+
+  @media (min-width:640px){
+    .links{ grid-template-columns:1fr 1fr 1fr }
+  }
+
+  /* Print */
+  @media print{
+    .topbar, footer{ background:#fff; color:#000; border-color:#ccc; }
+    .card{ background:#fff; border-color:#ccc; box-shadow:none }
+    a.btn{ background:#eee; color:#000; border-color:#bbb }
+    body{ color:#000 }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar" role="banner">
+    <div class="brand">Modern English Australia</div>
+  </div>
+
+  <main class="main">
+    <section class="card" aria-labelledby="title">
+      <h1 id="title">Week 2 – Use of English</h1>
+      <p class="lead">Select a part to begin the Week 2 test:</p>
+
+      <nav class="links" aria-label="Test parts">
+        <a class="btn" href="2part1.html">Part 1 – Multiple-choice Cloze</a>
+        <a class="btn" href="Upart2.html">Part 2 – Open Cloze</a>
+        <a class="btn" href="2part4.html">Part 4 – Word Formation</a>
+
+        <p>** there is no part 3 in this test*</p>
+      </nav>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    © Koala Spies Sydney 2025
+  </footer>
+</body>
+</html>

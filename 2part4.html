@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Week 2 – Use of English: Part 4</title>
+<style>
+  :root{
+    --bg:#1e1e1e;
+    --card:#2a2a2a;
+    --ink:#f5f5f5;
+    --muted:#bbbbbb;
+    --accent:#ff7a1a;
+    --line:#3a3a3a;
+    --radius:16px;
+  }
+
+  *{ box-sizing:border-box }
+  html, body{ height:100%; margin:0 }
+  body{
+    font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    line-height:1.75;
+  }
+
+  /* Header */
+  .topbar{
+    position:sticky; top:0; z-index:10;
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    padding:.85rem 1rem;
+  }
+  .brand{
+    max-width:1100px; margin:0 auto;
+    font-weight:700;
+    letter-spacing:.2px;
+    font-size:clamp(1rem, 3.5vw, 1.25rem);
+    color:var(--accent);
+    text-transform:uppercase;
+  }
+
+  /* Main content */
+  .wrap{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:clamp(20px,4vw,40px);
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:0 6px 24px rgba(0,0,0,.25);
+    width:100%;
+    max-width:800px;
+    padding:clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  h1{
+    color:var(--accent);
+    margin-top:0;
+    font-size:clamp(1.4rem, 4vw, 2rem);
+    text-align:center;
+  }
+
+  p.instructions{
+    color:var(--muted);
+    font-size:clamp(0.95rem, 2.5vw, 1rem);
+    margin-bottom:1.5rem;
+    text-align:justify;
+  }
+
+  .question{ margin-bottom:1.5rem; }
+  .prompt{ color:var(--ink); margin:0.25rem 0; }
+  .keyword{ color:var(--accent); font-weight:bold; letter-spacing:1px; }
+
+  
+
+  /* Navigation */
+  nav{
+    text-align:center;
+    margin-top:3rem;  /* increased spacing */
+  }
+  nav a{
+    text-decoration:none;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    padding:0.7rem 1.4rem;
+    border-radius:8px;
+    margin:0 0.75rem;
+    font-weight:600;
+    transition:all 0.2s ease-in-out;
+    display:inline-block;
+  }
+  nav a:hover{
+    background:var(--accent);
+    color:#111;
+    transform:translateY(-2px);
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:.9rem;
+    padding:1rem;
+    text-align:center;
+    background:var(--card);
+  }
+
+  @media print{
+    .topbar, footer{ background:#fff; color:#000; border-color:#ccc; }
+    .card{ background:#fff; border-color:#ccc; box-shadow:none }
+    nav a{ display:none }
+    body{ color:#000 }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar" role="banner">
+    <div class="brand">Modern English Australia</div>
+  </div>
+
+  <div class="wrap">
+    <section class="card" aria-labelledby="title">
+      <h1 id="title">Use of English – Part 4: Key Word Transformations</h1>
+
+      <p class="instructions">
+        <strong>Instructions:</strong> Complete the second sentence so that it has a similar meaning to the first sentence, 
+        using the word given. Do not change the word given. You must use between <strong>three and six words</strong>, 
+        including the word given. Write your answers on the line.
+      </p>
+
+      <div class="question">
+        <p class="prompt">0. I wish I had studied English more enthusiastically in high school.<br>
+        <span class="keyword">REGRET</span></p>
+        <div class="gapline">I <strong> regret not putting</strong> more effort into English when I was in high school.</div>
+      </div>
+
+      <div class="question">
+        <p class="prompt">1. It's your responsibility to organise your own transport and accommodation.<br>
+        <span class="keyword">UP</span></p>
+        <div class="gapline">It's ______________________ arrange your transportation and accommodation.</div>
+      </div>
+
+      <div class="question">
+        <p class="prompt">2. I'm a bit upset because Mark has moved away and didn't manage to say goodbye before he left.<br>
+        <span class="keyword">CHANCE</span></p>
+        <div class="gapline">I'm pretty sad that Mark has moved away and ________________________ goodbye before he left.</div>
+      </div>
+
+      <div class="question">
+        <p class="prompt">3. He seems not to have the ability to see that he's been tactless.<br>
+        <span class="keyword">INCAPABLE</span></p>
+        <div class="gapline">He seems to be absolutely _________________ when he's been tactless.</div>
+      </div>
+
+      <div class="question">
+        <p class="prompt">4. I am thinking of asking the teacher to give me permission to have an extension, as the homework won't be finished by tomorrow.<br>
+        <span class="keyword">LET</span></p>
+        <div class="gapline">I am thinking of asking the teacher if she will _________________________ an extension because I won't finish the homework by tomorrow.</div>
+      </div>
+       <div class="question">
+<p class="prompt">
+  5. His driving skills are so bad that I'm sure he will cause an accident one day.<br>
+  <span class="keyword">AWFUL</span>
+</p>
+           <div class="gapline"></div> His driving skills _____________________, making him a driving hazard, in my opinion.</div>
+            
+
+      <nav>
+        <a href="2covuseofENG.html">🏠 Home</a>
+        <a href="2part1.html">Part 1</a>
+        <a href="Upart2.html">Part 2</a>
+      </nav>
+    </section>
+  </div>
+
+  <footer role="contentinfo">
+    © Koala Spies Sydney 2025
+  </footer>
+</body>
+</html>
