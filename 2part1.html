@@ -1,208 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAE Use of English – Part 1</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Use of English – Part 1</title>
 
 <style>
-  :root {
+  :root{
     --bg:#1e1e1e;
     --card:#2a2a2a;
     --ink:#f5f5f5;
     --muted:#bbbbbb;
-    --line:#3a3a3a;
     --accent:#ff7a1a;
+    --line:#3a3a3a;
+    --radius:16px;
   }
 
-  body {
-    font-family: Arial, sans-serif;
-    margin:0;
-    padding:0;
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; margin:0; }
+  body{
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
     background:var(--bg);
     color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
     line-height:1.75;
   }
 
-/* Brand header (dark, left-aligned image) */
-header.brand{
-  background:#111;               /* dark brand background */
-  display:flex;
-  align-items:center;
-  padding:.75rem 1rem;
-}
-
-/* Banner image scales nicely on mobile */
-header.brand img{
-  height:48px;
-  width:auto;
-  display:block;
-}
-
-/* Thin accent bar under header */
-.brand-strip{
-  height:4px;
-  background:var(--accent);
-}
-
-/* Remove/override the previous text-header rules */
-header{
-  background:unset;
-  color:unset;
-  text-align:left;
-  padding:0;
-  font-weight:unset;
-  letter-spacing:0;
-  font-size:unset;
-}
-
-/* Responsive tweak */
-@media (max-width:700px){
-  header.brand{ padding:.6rem .8rem; }
-  header.brand img{ height:38px; }
-}
-
-
-  .wrap {
-    width:100%;
-    max-width:900px;
-    margin:auto;
-    padding:clamp(0.8rem, 3vw, 2rem);
-  }
-
-  .card {
+  /* ===== Header ===== */
+  .topbar{
+    position:sticky; top:0; z-index:10;
     background:var(--card);
-    padding:clamp(1rem, 4vw, 2rem);
-    border-radius:12px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.3);
+    border-bottom:1px solid var(--line);
+    padding:.85rem 1rem;
   }
-
-  h1 {
-    margin-top:0;
-    font-size:clamp(1.2rem, 4vw, 1.8rem);
+  .brand{
+    max-width:1100px; margin:0 auto;
+    font-weight:700;
+    letter-spacing:.2px;
+    font-size:clamp(1rem,3.5vw,1.25rem);
     color:var(--accent);
+    text-transform:uppercase;
   }
 
-  p.instructions {
+  /* ===== Layout ===== */
+  .wrap{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:clamp(20px,4vw,40px);
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:0 6px 24px rgba(0,0,0,.25);
+    width:100%;
+    max-width:800px;
+    padding:clamp(1.5rem,4vw,2.5rem);
+  }
+
+  h1{
+    color:var(--accent);
+    margin-top:0;
+    font-size:clamp(1.4rem,4vw,2rem);
+    text-align:center;
+  }
+
+  p.instructions{
     color:var(--muted);
-    font-size:clamp(0.9rem, 2.5vw, 1rem);
+    font-size:clamp(0.95rem,2.5vw,1rem);
     margin-bottom:1.5rem;
+    text-align:justify;
   }
 
-  .text {
-    font-size:clamp(0.95rem, 2.5vw, 1.05rem);
-    word-wrap:break-word;
+  .text{
+    font-size:clamp(0.95rem,2.5vw,1.05rem);
   }
 
-  select {
+  /* ===== Dropdowns ===== */
+  select{
     background:#333;
     color:var(--ink);
     border:1px solid var(--line);
     border-radius:6px;
-    padding:0.5rem 0.7rem;
+    padding:0.4rem 0.55rem;
     font:inherit;
-    margin:0.4rem 0.25rem;
+    margin:0.25rem;
     width:auto;
-    min-width:130px;
-    max-width:100%;
+    min-width:8ch;
+    max-width:45vw;
+    vertical-align:baseline;
   }
+  option{ background:#222; color:#fff; }
 
-  option { background:#222; color:#fff; }
-
-  nav {
+  /* ===== Navigation ===== */
+  nav{
     text-align:center;
     margin-top:2rem;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:0.8rem;
   }
-
-  nav a {
+  nav a{
     text-decoration:none;
     color:var(--accent);
     border:1px solid var(--accent);
     padding:0.6rem 1.2rem;
     border-radius:6px;
+    margin:0 0.5rem;
     transition:all 0.2s ease-in-out;
-    flex:1 1 auto;
-    text-align:center;
-    min-width:100px;
   }
-
-  nav a:hover {
+  nav a:hover{
     background:var(--accent);
-    color:#fff;
+    color:#111;
   }
 
-  footer {
-    text-align:center;
+  /* ===== Footer ===== */
+  footer{
+    border-top:1px solid var(--line);
     color:var(--muted);
-    font-size:0.9rem;
-    margin:2rem 0 1rem 0;
+    font-size:.9rem;
+    padding:1rem;
+    text-align:center;
+    background:var(--card);
   }
 
-  /* ✅ Mobile layout */
-  @media (max-width:700px) {
-    .wrap {
-      padding:1rem;
-    }
-    .card {
-      padding:1rem;
-      border-radius:10px;
-    }
-    header {
-      letter-spacing:2px;
-    }
-    select {
-      display:block;
-      width:100%;
-      margin:0.7rem 0;
-    }
-    .text {
+  /* ===== Responsive ===== */
+  @media (max-width:600px){
+    .text{ line-height:1.9; }
+    select{
+      display:inline-block;
+      width:auto;
+      min-width:clamp(7ch,24vw,11ch);
+      max-width:50vw;
       font-size:1rem;
-      line-height:1.9;
     }
-    nav {
-      flex-direction:column;
-      gap:0.6rem;
+    nav a{
+      display:block;
+      margin:0.5rem auto;
+      width:80%;
     }
   }
 
-  /* ✅ Print-friendly */
-  @media print {
-    body { background:#fff; color:#000; }
-    .card { background:#fff; box-shadow:none; border:1px solid #ccc; }
-    select { background:#fff; color:#000; }
+  /* ===== Print ===== */
+  @media print{
+    .topbar,footer{ background:#fff;color:#000;border-color:#ccc; }
+    .card{ background:#fff;border-color:#ccc;box-shadow:none; }
+    select{ background:#fff;color:#000;border-color:#ccc; }
+    nav a{ display:none; }
   }
 
-  /* ✅ Highlight strong text */
-  strong {
-    color: var(--accent);
-    text-decoration: underline;
-    text-decoration-color: var(--accent);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
+  /* ===== Strong highlight ===== */
+  strong{
+    color:var(--accent);
+    text-decoration:underline;
+    text-underline-offset:3px;
+    text-decoration-thickness:2px;
+    font-weight:700;
   }
 </style>
 </head>
 
 <body>
-  <header>MODERN AUSTRALIAN ENGLISH</header>
+  <div class="topbar" role="banner">
+    <div class="brand">Modern English Australia</div>
+  </div>
 
   <div class="wrap">
-    <div class="card">
-      <h1>CAE Use of English – Part 1</h1>
+    <section class="card" aria-labelledby="title">
+      <h1 id="title">Use of English – Part 1: Multiple-Choice Cloze</h1>
+
       <p class="instructions">
-        Read the text below and decide which answer best fits each gap. 
-        There is an example (0) at the beginning. Select the correct option from the dropdown menu.
+        <strong>Instructions:</strong> Read the text below and decide which answer (A, B, C or D) best fits each gap.
+        There is an example at the beginning (0). Select the correct option from the dropdown menu.
       </p>
 
       <div class="text">
         <h3><em>The Modern Quest for Wellness</em></h3>
 
-        In today's fast-paced world, finding a balance between work and personal life has become 
-        (0) <strong>easily</strong> the most pressing concern for many. Long work hours mean that downtime is 
+        In today’s fast-paced world, finding a balance between work and personal life has become
+        (0) <strong>easily</strong> the most pressing concern for many. Long work hours mean that downtime is
         (1)
         <select>
           <option value="">---</option>
@@ -211,10 +188,9 @@ header{
           <option>quite</option>
           <option>fairly</option>
         </select>
-        difficult to find, leading many to seek out restorative experiences. 
-        The modern holiday is no longer just about seeing sights; it's about actively pursuing wellness.
+        difficult to find, leading many to seek out restorative experiences. The modern holiday is no longer just about seeing sights; it’s about actively pursuing wellness.
         <br><br>
-        Some people find that switching off from work while away is 
+        Some people find that switching off from work while away is
         (2)
         <select>
           <option value="">---</option>
@@ -223,7 +199,7 @@ header{
           <option>literally</option>
           <option>nearly</option>
         </select>
-        possible, forcing them to answer emails or join calls, which makes the entire trip 
+        possible, forcing them to answer emails or join calls, which makes the entire trip
         (3)
         <select>
           <option value="">---</option>
@@ -232,7 +208,7 @@ header{
           <option>slightly</option>
           <option>hardly</option>
         </select>
-        less relaxing. However, others 
+        less relaxing. However, others
         (4)
         <select>
           <option value="">---</option>
@@ -241,18 +217,18 @@ header{
           <option>be</option>
           <option>being</option>
         </select>
-        good at setting boundaries, ensuring that their annual break is 
+        good at setting boundaries, ensuring that their annual break is
         (5)
         <select>
           <option value="">---</option>
-          <option>slightly</option>
-          <option>substantially</option>
+          <option>totally</option>
+          <option>completely</option>
           <option>utterly</option>
-          <option>very</option>
+          <option>absolutely</option>
         </select>
         amazing and recharges their mental batteries.
         <br><br>
-        Adventure travel, in particular, often involves a journey that is 
+        Adventure travel, in particular, often involves a journey that is
         (6)
         <select>
           <option value="">---</option>
@@ -261,8 +237,7 @@ header{
           <option>highly</option>
           <option>really</option>
         </select>
-        gruelling, perhaps involving a demanding trek or a testing physical feat. Yet, participants often describe 
-        the feeling of completion as 
+        gruelling, perhaps involving a demanding trek or a testing physical feat. Yet, participants often describe the feeling of completion as
         (7)
         <select>
           <option value="">---</option>
@@ -279,9 +254,11 @@ header{
         <a href="Upart2.html">Part 2</a>
         <a href="2part4.html">Part 4</a>
       </nav>
-
-      <footer>© Koala Spies Sydney 2025</footer>
-    </div>
+    </section>
   </div>
+
+  <footer role="contentinfo">
+    © Koala Spies Sydney 2025
+  </footer>
 </body>
 </html>
