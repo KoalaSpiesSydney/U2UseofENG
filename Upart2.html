@@ -15,8 +15,8 @@
     --radius:16px;
   }
 
-  *{ box-sizing:border-box }
-  html, body{ height:100%; margin:0 }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html, body{ height:100%; }
   body{
     font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     background:var(--bg);
@@ -75,19 +75,18 @@
     text-align:justify;
   }
 
-  .text{
-    font-size:clamp(0.95rem, 2.5vw, 1.05rem);
-  }
+  .text{ font-size:clamp(0.95rem, 2.5vw, 1.05rem); }
 
-  input.blank{
+  input.blank, select{
     background:#333;
     color:var(--ink);
     border:1px solid var(--line);
     border-radius:6px;
     padding:0.35rem 0.6rem;
     font:inherit;
-    margin:0.2rem;
-    min-width:100px;
+    margin:0.2rem 0.25rem;
+    min-width:80px;
+    max-width:160px;
   }
 
   nav{
@@ -119,23 +118,36 @@
     background:var(--card);
   }
 
+  /* ===== Responsive ===== */
   @media (max-width:600px){
-    input.blank{ display:block; width:100%; margin:0.6rem 0; }
     .text{ line-height:1.9; }
+
+    input.blank, select{
+      width:100%;
+      max-width:100%;
+      margin:0.4rem 0;
+      font-size:1rem;
+    }
+
+    nav a{
+      display:block;
+      margin:0.5rem auto;
+      width:80%;
+    }
   }
 
   @media print{
     .topbar, footer{ background:#fff; color:#000; border-color:#ccc; }
-    .card{ background:#fff; border-color:#ccc; box-shadow:none }
-    input.blank{ background:#fff; color:#000; border-color:#ccc }
-    nav a{ display:none }
+    .card{ background:#fff; border-color:#ccc; box-shadow:none; }
+    input.blank{ background:#fff; color:#000; border-color:#ccc; }
+    nav a{ display:none; }
   }
-  strong {
-  color: var(--accent);
-  text-decoration: underline;
-  font-weight: bold;
-}
 
+  strong{
+    color:var(--accent);
+    text-decoration:underline;
+    font-weight:bold;
+  }
 </style>
 </head>
 <body>
@@ -158,16 +170,15 @@
         Cybersecurity experts are currently (0) <strong>in</strong> high demand, particularly as companies increasingly move their operations online. 
         (1) <input class="blank" type="text" /> a result, skilled professionals (2) <input class="blank" type="text" /> this field are perpetually (3) <input class="blank" type="text" /> the road, travelling between different international clients who are facing complex digital threats.
         <br><br>
-        For many businesses, however, there’s a feeling of (4) <input class="blank" type="text" />in two minds about the cost of security. They understand that sophisticated protection is absolutely essential (5) <input class="blank" type="text" /> the digital age, but they often struggle to allocate the necessary budget. The reality is that the greater the technological advances, (6) <input class="blank" type="text" /> more vulnerable a system becomes to attack.
+        For many businesses, however, there’s a feeling of (4) <input class="blank" type="text" /> in two minds about the cost of security. They understand that sophisticated protection is absolutely essential (5) <input class="blank" type="text" /> the digital age, but they often struggle to allocate the necessary budget. The reality is that the greater the technological advances, (6) <input class="blank" type="text" /> more vulnerable a system becomes to attack.
         <br><br>
         This conflict means that highly qualified security consultants are always (7) <input class="blank" type="text" /> demand, offering their expertise to mitigate risks. (8) <input class="blank" type="text" /> those who are quick to adopt every new gadget, considering the potential security implications is a critical part of a safe digital lifestyle.
       </div>
 
       <nav>
-           <a href="2covuseofENG.html">🏠 Home</a>
+        <a href="2covuseofENG.html">🏠 Home</a>
         <a href="2part1.html">Part 1</a>
         <a href="2part4.html">Part 4</a>
-      </nav>
       </nav>
     </section>
   </div>
@@ -177,5 +188,7 @@
   </footer>
 </body>
 </html>
+
+
 
 
