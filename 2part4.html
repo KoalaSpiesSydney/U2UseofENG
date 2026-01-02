@@ -95,6 +95,115 @@
     font-weight: bold;
   }
 
+  /* ===== NEW: answer inputs + feedback ===== */
+  .gapline{
+    margin-top:0.5rem;
+  }
+  input.answer{
+    background:#333;
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:0.45rem 0.6rem;
+    font:inherit;
+    width:min(520px, 100%);
+    max-width:100%;
+    margin:0.25rem 0;
+  }
+  input.answer.correct{
+    border-color:#1db954;
+    box-shadow:0 0 0 2px rgba(29,185,84,0.18);
+  }
+  input.answer.wrong{
+    border-color:#e74c3c;
+    box-shadow:0 0 0 2px rgba(231,76,60,0.16);
+  }
+  input.answer:disabled{
+    background:#263126;
+    border-color:#1db954;
+    font-weight:700;
+  }
+
+  /* ===== NEW: Submit block ===== */
+  .submit-block{
+    margin-top:1.8rem;
+    padding:1rem;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:#252525;
+  }
+  .submit-row{
+    display:flex;
+    gap:0.75rem;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .submit-actions{
+    display:flex;
+    gap:0.6rem;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .score-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    padding:0.45rem 0.75rem;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:#1f1f1f;
+    font-weight:700;
+  }
+  .score-pill strong{
+    color:var(--accent);
+    text-decoration:none;
+  }
+
+  .btn{
+    background:var(--accent);
+    color:#111;
+    border:none;
+    border-radius:10px;
+    padding:0.65rem 1.1rem;
+    cursor:pointer;
+    font-size:1rem;
+    transition:transform 0.15s ease, filter 0.2s ease;
+    font-weight:700;
+  }
+  .btn:hover{ transform:translateY(-1px); filter:brightness(1.05); }
+
+  .btn-ghost{
+    background:transparent;
+    color:var(--accent);
+    border:1px solid var(--accent);
+  }
+  .btn-ghost:hover{
+    background:var(--accent);
+    color:#111;
+  }
+
+  .notice{
+    margin-top:0.75rem;
+    color:var(--muted);
+    font-size:0.95rem;
+  }
+
+  #answerKey{
+    margin-top:0.9rem;
+    display:none;
+    border-top:1px solid var(--line);
+    padding-top:0.9rem;
+    color:var(--muted);
+  }
+  .key-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:0.35rem 1rem;
+    margin-top:0.5rem;
+    font-size:0.98rem;
+  }
+
   /* Navigation */
   nav {
     text-align: center;
@@ -130,21 +239,17 @@
 
   /* ===== Responsive ===== */
   @media (max-width: 600px) {
-    .text { line-height: 1.9; }
-
-    select {
-      display: inline-block;
-      width: auto;
-      min-width: clamp(7ch, 24vw, 11ch);
-      max-width: 50vw;
-      font-size: 1rem;
-    }
-
+    input.answer{ width:100%; }
     nav a {
       display: block;
       margin: 0.5rem auto;
       width: 80%;
     }
+  }
+
+  @media print{
+    .submit-block{ display:none; }
+    nav a{ display:none; }
   }
 </style>
 </head>
@@ -158,8 +263,8 @@
       <h1 id="title">Use of English – Part 4: Key Word Transformations</h1>
 
       <p class="instructions">
-        <strong>Instructions:</strong> Complete the second sentence so that it has a similar meaning to the first sentence, 
-        using the word given. Do not change the word given. You must use between <strong>three and six words</strong>, 
+        <strong>Instructions:</strong> Complete the second sentence so that it has a similar meaning to the first sentence,
+        using the word given. Do not change the word given. You must use between <strong>three and six words</strong>,
         including the word given. Write your answers on the line.
       </p>
 
@@ -169,35 +274,72 @@
         <div class="gapline">I <strong>regret not putting</strong> more effort into English when I was in high school.</div>
       </div>
 
-      <div class="question">
+      <div class="question" data-q="1">
         <p class="prompt">1. It's your responsibility to organise your own transport and accommodation.<br>
         <span class="keyword">UP</span></p>
-        <div class="gapline">It's ______________________ arrange your transportation and accommodation.</div>
+        <div class="gapline">
+          It's <input class="answer" type="text" data-q="1" placeholder="your answer..." /> arrange your transportation and accommodation.
+        </div>
       </div>
 
-      <div class="question">
+      <div class="question" data-q="2">
         <p class="prompt">2. I'm a bit upset because Mark has moved away and didn't manage to say goodbye before he left.<br>
         <span class="keyword">CHANCE</span></p>
-        <div class="gapline">I'm pretty sad that Mark has moved away and ________________________ goodbye before he left.</div>
+        <div class="gapline">
+          I'm pretty sad that Mark has moved away and <input class="answer" type="text" data-q="2" placeholder="your answer..." /> goodbye before he left.
+        </div>
       </div>
 
-      <div class="question">
+      <div class="question" data-q="3">
         <p class="prompt">3. He seems not to have the ability to see that he's been tactless.<br>
         <span class="keyword">INCAPABLE</span></p>
-        <div class="gapline">He seems to be absolutely _________________ when he's been tactless.</div>
+        <div class="gapline">
+          He seems to be absolutely <input class="answer" type="text" data-q="3" placeholder="your answer..." /> when he's been tactless.
+        </div>
       </div>
 
-      <div class="question">
+      <div class="question" data-q="4">
         <p class="prompt">4. I am thinking of asking the teacher to give me permission to have an extension, as the homework won't be finished by tomorrow.<br>
         <span class="keyword">LET</span></p>
-        <div class="gapline">I am thinking of asking the teacher if she will _________________________ an extension because I won't finish the homework by tomorrow.</div>
+        <div class="gapline">
+          I am thinking of asking the teacher if she will <input class="answer" type="text" data-q="4" placeholder="your answer..." /> an extension because I won't finish the homework by tomorrow.
+        </div>
       </div>
 
-      <div class="question">
+      <div class="question" data-q="5">
         <p class="prompt">5. No other restaurant in town is as dirty as this one.<br>
         <span class="keyword">EASILY</span></p>
-        <div class="gapline">This is _________________________ restaurant in town.</div>
+        <div class="gapline">
+          This is <input class="answer" type="text" data-q="5" placeholder="your answer..." /> restaurant in town.
+        </div>
       </div>
+
+      <!-- ===== NEW: Submit / Score / Reveal ===== -->
+      <section class="submit-block" aria-label="Submit answers and score">
+        <div class="submit-row">
+          <div class="score-pill">
+            Score: <strong id="scoreText">—</strong>
+          </div>
+
+          <div class="submit-actions">
+            <button type="button" class="btn" id="submitBtn">Submit answers</button>
+            <button type="button" class="btn btn-ghost" id="tryAgainBtn">Try again</button>
+            <button type="button" class="btn btn-ghost" id="toggleKeyBtn">Show answer key</button>
+          </div>
+        </div>
+
+        <div class="notice" id="noticeText">
+          Type your answers (3–6 words, including the keyword), then submit to see your score.
+        </div>
+
+        <div id="answerKey">
+          <strong>Answer key (one acceptable version per item)</strong>
+          <div class="key-grid" id="keyGrid"></div>
+          <div class="notice" style="margin-top:0.6rem;">
+            Note: Key Word Transformations often have multiple correct answers. If you want, send me your official accepted variants and I’ll add them.
+          </div>
+        </div>
+      </section>
 
       <nav>
         <a href="index.html">🏠 Home</a>
@@ -210,7 +352,127 @@
   <footer role="contentinfo">
     © Koala Spies Sydney 2025
   </footer>
+
+<script>
+/* ===== Answer checking (KWT) =====
+   KWT often allows multiple correct wordings.
+   Below are common accepted versions for your items.
+   If you have your official marking key, send it and I’ll match it exactly.
+*/
+const ANSWERS = {
+  1: [
+    "up to you to",
+    "up to you to",
+  ],
+  2: [
+    "didn't get the chance to say",
+    "did not get the chance to say",
+    "didn't have the chance to say",
+    "did not have the chance to say",
+  ],
+  3: [
+    "incapable of seeing",
+    "incapable of realising",
+    "incapable of realizing",
+  ],
+  4: [
+    "let me have",
+    "let me get",
+    "let me take",
+    "let me have",
+  ],
+  5: [
+    "easily the dirtiest",
+    "easily the most dirty",
+  ],
+};
+
+const inputs = Array.from(document.querySelectorAll('input.answer[data-q]'));
+const submitBtn = document.getElementById('submitBtn');
+const tryAgainBtn = document.getElementById('tryAgainBtn');
+const toggleKeyBtn = document.getElementById('toggleKeyBtn');
+const scoreText = document.getElementById('scoreText');
+const noticeText = document.getElementById('noticeText');
+const answerKey = document.getElementById('answerKey');
+const keyGrid = document.getElementById('keyGrid');
+
+function norm(s){
+  return (s || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
+function buildKey(){
+  keyGrid.innerHTML = "";
+  Object.keys(ANSWERS).sort((a,b)=>Number(a)-Number(b)).forEach(q=>{
+    const div = document.createElement('div');
+    // show first option as the "model" answer
+    div.textContent = `(${q}) ${ANSWERS[q][0]}`;
+    keyGrid.appendChild(div);
+  });
+}
+
+function allAnswered(){
+  return inputs.every(inp => norm(inp.value) !== "");
+}
+
+function grade(){
+  if (!allAnswered()){
+    noticeText.textContent = "Please answer all questions (1–5) before submitting.";
+    return;
+  }
+
+  let score = 0;
+
+  inputs.forEach(inp=>{
+    const q = Number(inp.dataset.q);
+    const user = norm(inp.value);
+    const accepted = (ANSWERS[q] || []).map(norm);
+
+    inp.classList.remove('correct','wrong');
+
+    if (accepted.includes(user)){
+      score++;
+      inp.classList.add('correct');
+      inp.disabled = true; // lock correct
+    } else {
+      inp.classList.add('wrong');
+      inp.disabled = false; // allow edits
+    }
+  });
+
+  scoreText.textContent = `${score} / ${inputs.length}`;
+
+  if (score === inputs.length){
+    noticeText.textContent = "Perfect score. Nice work.";
+  } else {
+    noticeText.textContent = "Correct answers are locked. Fix the red ones and submit again.";
+  }
+}
+
+submitBtn.addEventListener('click', grade);
+
+tryAgainBtn.addEventListener('click', ()=>{
+  inputs.forEach(inp=>{
+    inp.value = "";
+    inp.classList.remove('correct','wrong');
+    inp.disabled = false;
+  });
+  scoreText.textContent = "—";
+  noticeText.textContent = "Reset complete. Try again.";
+});
+
+toggleKeyBtn.addEventListener('click', ()=>{
+  const showing = answerKey.style.display === "block";
+  answerKey.style.display = showing ? "none" : "block";
+  toggleKeyBtn.textContent = showing ? "Show answer key" : "Hide answer key";
+});
+
+buildKey();
+</script>
 </body>
 </html>
+
 
 
